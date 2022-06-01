@@ -1,0 +1,36 @@
+{
+	"manifest_version": 3,
+	"name": "excom react extension sample",
+	"version": "0.0.1",
+	"background": {
+		"service_worker": "background/index.js"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://blank.org/"
+			],
+			"run_at": "document_end",
+			"js": [
+				"/index.js"
+			],
+			"css": [
+				"/index.css"
+			],
+			"media": []
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"/index.css"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"action": {
+		"default_popup": "popup/index.html"
+	}
+}

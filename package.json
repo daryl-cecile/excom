@@ -1,0 +1,21 @@
+{
+  "name": "@projectfunction/excom",
+  "version": "1.0.9",
+  "description": "Simply your extension's cross-realm communication",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/daryl-cecile/excom.git",
+  "author": "Daryl Cecile <darylcecile@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.14.42"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.188",
+    "typescript": "^4.7.2"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc --project tsconfig.json",
+    "build": "esbuild ./src/index.ts --format=esm --outdir=dist/ --bundle --sourcemap --sources-content=false --resolve-extensions=.ts,.js --loader:.ts=ts"
+  }
+}

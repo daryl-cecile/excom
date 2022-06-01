@@ -1,0 +1,19 @@
+{
+  "name": "sample-react-extension-with-excom",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@projectfunction/excom": "^1.0.9",
+    "esbuild": "^0.14.42",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "scripts": {
+    "build:inject": "esbuild ./src/index.tsx --format=esm --outdir=dist/ --bundle --sourcemap --sources-content=false --resolve-extensions=.tsx,.ts,.jsx,.js --loader:.html=text --loader:.tsx=tsx --loader:.ts=ts --loader:.svg=dataurl",
+    "build:background": "esbuild ./src/background/index.ts --format=esm --outdir=dist/background/ --bundle --sourcemap --sources-content=false --resolve-extensions=.ts,.js --loader:.ts=ts",
+    "build:popup": "esbuild ./src/popup/index.tsx --format=esm --outdir=dist/popup/ --bundle --sourcemap --sources-content=false --resolve-extensions=.tsx,.ts,.jsx,.js --loader:.html=text --loader:.tsx=tsx --loader:.ts=ts && cp ./src/popup/index.html ./dist/popup/index.html",
+    "build": "yarn build:inject && yarn build:background && yarn build:popup",
+    "postbuild": "node -e \"$(cat ./postbuild.ts | esbuild --format=cjs --target=node16 --loader=ts)\""
+  }
+}

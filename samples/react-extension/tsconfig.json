@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "es2015",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+		"lib": ["es2015", "dom"],                             /* Specify library files to be included in the compilation. */
+		"moduleResolution": "Node",
+		"jsx": "react",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	}
+}

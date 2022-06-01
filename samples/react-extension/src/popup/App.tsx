@@ -1,9 +1,6 @@
 import React, {useEffect} from "react";
 import {popupScriptHandler} from "@projectfunction/excom";
 
-// @ts-ignore
-import logo from "./logo.svg";
-
 export default function App(){
 	useEffect(()=>{
 		popupScriptHandler.tap(); //start listening to messages and method calls
